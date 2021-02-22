@@ -1,9 +1,9 @@
 const UserModel = require("../models/UserModel");
 
 const handleSignIn = async (req, res) => {
-    const { email, password } = req.body;
-    const message = "Email or password incorrect!";
-    const user = await UserModel.findOne({ email });
+    const { username, password } = req.body;
+    const message = "Username or password incorrect!";
+    const user = await UserModel.findOne({ username });
 
     if (!user || !password) res.status(401).json({ success: false, message });
 
@@ -13,8 +13,7 @@ const handleSignIn = async (req, res) => {
     res.json({
         success: true,
         userData: {
-            fname: user.fname,
-            lname: user.lname,
+            username: user.username,
             email: user.email,
         },
         token: user.generateJWT(),
