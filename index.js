@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 require("./routes")(app);
 
 const ratingRouter = require('./routes/ratingRouter');
-const averageRatingRouter = require('./routes/averageRatingRouter');
+
 
 
 app.use('/rating', ratingRouter)
-app.use('/averageRating', averageRatingRouter)
+
 
 dbConnection.on(
     "error",

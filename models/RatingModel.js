@@ -9,6 +9,7 @@ const ratingSchema = new Schema({
     rating: { type: Number },
     movie: { type: String },
 
+
 });
 
 const Rating = mongoose.model('rating', ratingSchema);
