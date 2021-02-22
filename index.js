@@ -11,6 +11,13 @@ app.use(cors());
 app.use(bodyParser.json());
 require("./routes")(app);
 
+const ratingRouter = require('./routes/ratingRouter');
+
+
+
+app.use('/rating', ratingRouter)
+
+
 dbConnection.on(
     "error",
     console.error.bind(console, "MongoDB connection error:")
